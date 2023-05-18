@@ -50,8 +50,7 @@ def extract_parameters(results):
     names = frozenset(names)
     if len(names) != 1:
         die(
-            "benchmarks must all have the same parameter name, but found: %s"
-            % sorted(names)
+            f"benchmarks must all have the same parameter name, but found: {sorted(names)}"
         )
     return (next(iter(names)), list(values))
 
@@ -63,8 +62,7 @@ def unique_parameter(benchmark):
         die("benchmarks must have exactly one parameter, but found none")
     if len(params_dict) > 1:
         die(
-            "benchmarks must have exactly one parameter, but found multiple: %s"
-            % sorted(params_dict)
+            f"benchmarks must have exactly one parameter, but found multiple: {sorted(params_dict)}"
         )
     [(name, value)] = params_dict.items()
     return (name, float(value))
