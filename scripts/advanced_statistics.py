@@ -22,7 +22,7 @@ for command, ts in zip(commands, times):
 
     iqr = p75 - p25
 
-    print("Command '{}'".format(command))
+    print(f"Command '{command}'")
     print("  runs:   {:8d}".format(len(ts)))
     print("  mean:   {:8.3f} s".format(np.mean(ts)))
     print("  stddev: {:8.3f} s".format(np.std(ts, ddof=1)))

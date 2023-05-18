@@ -4,6 +4,7 @@
 benchmark results to test whether or not the two distributions are
 the same."""
 
+
 import argparse
 import json
 import sys
@@ -23,8 +24,8 @@ if len(results) != 2:
 a, b = [x["command"] for x in results[:2]]
 X, Y = [x["times"] for x in results[:2]]
 
-print("Command 1: {}".format(a))
-print("Command 2: {}\n".format(b))
+print(f"Command 1: {a}")
+print(f"Command 2: {b}\n")
 
 t, p = stats.ttest_ind(X, Y, equal_var=False)
 th = 0.05
@@ -33,6 +34,6 @@ print("t = {:.3}, p = {:.3}".format(t, p))
 print()
 
 if dispose:
-    print("There is a difference between the two benchmarks (p < {}).".format(th))
+    print(f"There is a difference between the two benchmarks (p < {th}).")
 else:
-    print("The two benchmarks are almost the same (p >= {}).".format(th))
+    print(f"The two benchmarks are almost the same (p >= {th}).")
